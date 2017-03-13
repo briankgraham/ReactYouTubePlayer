@@ -1,10 +1,10 @@
 var VideoList = ({videos, handleClick}) => {
-  var stuff = videos.map((video) => {
-        return (<VideoListEntry key={video.id.videoId} video={video} handleClick={handleClick}/>)
+  const VideoEntries = videos.map((video) => {
+    return (<VideoListEntry key={video.id.videoId} video={video} handleClick={handleClick}/>)
   });
   return (
     <div className="video-list media">
-      {stuff}
+      {VideoEntries}
     </div>
   );
 }

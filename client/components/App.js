@@ -10,7 +10,7 @@ var App = React.createClass({
     };
   },
 
-  componentWillMount() {
+  componentDidMount() {
     this.handleSearch('react tuts');
   },
 
