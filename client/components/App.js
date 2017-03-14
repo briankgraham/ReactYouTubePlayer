@@ -14,14 +14,14 @@ var App = React.createClass({
     this.handleSearch('react tuts');
   },
 
-  handleClick(vid) {
+  handleClick(id) {
     this.setState({
-      currentVideo: vid
+      currentVideo: id
     });
   },
 
   handleSearch(query) {
-    var input = query || document.getElementById('search').value;
+    var input = query || this.inputRef.value;
     searchYouTube(input, (data) => {
       this.setState({
         videos: data.items,
@@ -31,11 +31,12 @@ var App = React.createClass({
   },
 
   render() {
+    const currentVideo = this.state.videos.filter(vid => vid.id === this.state.)
     return (
       <div>
-        <Header handleSearch={() => this.debounce(this.handleSearch, 1500)}/>
+        <Header inputRef={ref => this.input = ref} handleSearch={() => this.debounce(this.handleSearch, 1500)}/>
         <div className="col-md-7">
-          <VideoPlayer video={this.state.currentVideo}/>
+          <VideoPlayer video={currentVideo}/>
         </div>
         <div className="col-md-5">
           <VideoList videos={this.state.videos} handleClick={this.handleClick}/>
